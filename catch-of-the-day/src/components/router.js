@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import StorePicker from './StorePicker';
 import App from './App';
-import NotFound from './notFound';
+import NotFound from './NotFound';
 
-const Router = props => (
+const Router = () => (
   <BrowserRouter>
-    <switch>
-      <Route exact path="/" component={StorePicker} />>
+    <Switch>
+      <Route exact path="/" component={StorePicker} />
       <Route path="/store/:storeId" component={App} />
       <Route component={NotFound} />
-    </switch>
+    </Switch>
   </BrowserRouter>
 );
 export default Router;

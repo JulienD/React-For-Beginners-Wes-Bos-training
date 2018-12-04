@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './header';
-import Order from './order';
-import Inventory from './inventory';
+import Header from './Header';
+import Order from './Order';
+import Inventory from './Inventory';
 
 export default class App extends Component {
   render() {
