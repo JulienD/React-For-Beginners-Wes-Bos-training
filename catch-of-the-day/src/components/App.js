@@ -15,10 +15,24 @@ export default class App extends Component {
 
   componentDidMount() {
     const { params } = this.props.match;
+
+    const localStorageRef = localStorage.getItem(params.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+      console.log(localStorageRef);
+    }
+
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: 'fishes'
     });
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.order);
+
+    let order = this.state.order;
+    localStorage.setItem(this.props.match.params.storeId, JSON.stringify(order));
   }
 
   componentWillUnmount() {
